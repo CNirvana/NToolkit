@@ -1,6 +1,9 @@
-public enum TaskStatue
+namespace Nirvana.BT
 {
-    Failure,
-    Success,
-    Running
+    public enum TaskStatue
+    {
+        Failure,
+        Success,
+        Running
+    }
 }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3967989416563257200
+--- !u!114 &-4159367350013438588
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,18 +9,119 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 864481f96c9d991469015480289c3ec2, type: 3}
-  m_Name: Inverter
+  m_Script: {fileID: 11500000, guid: 61f456db3f04676479bc5ada266457d4, type: 3}
+  m_Name: Log
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -344, y: 8}
+  position: {x: 488, y: -168}
   ports:
     keys:
     - parent
-    - child
     values:
     - _fieldName: parent
-      _node: {fileID: -3967989416563257200}
+      _node: {fileID: -4159367350013438588}
+      _typeQualifiedName: Nirvana.BT.Task, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: child
+        node: {fileID: 6849630331168733615}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+  parent: {fileID: 6849630331168733615}
+  info: 
+--- !u!114 &-2917352734246373897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e5c7f81c01d00f469658d70792f2033, type: 3}
+  m_Name: Sequence
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -72, y: -184}
+  ports:
+    keys:
+    - children
+    - parent
+    - children 0
+    values:
+    - _fieldName: children
+      _node: {fileID: -2917352734246373897}
+      _typeQualifiedName: System.Collections.Generic.List`1[[Nirvana.BT.Task, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: parent
+      _node: {fileID: -2917352734246373897}
+      _typeQualifiedName: Nirvana.BT.Task, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: child
+        node: {fileID: -572460420321250235}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: children 0
+      _node: {fileID: -2917352734246373897}
+      _typeQualifiedName: Nirvana.BT.Task, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: parent
+        node: {fileID: 6849630331168733615}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  parent: {fileID: -572460420321250235}
+  children:
+  - {fileID: 6849630331168733615}
+--- !u!114 &-572460420321250235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99452f027eac4a148a55a0ea5853293c, type: 3}
+  m_Name: Entry Task
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -328, y: -184}
+  ports:
+    keys:
+    - child
+    - parent
+    values:
+    - _fieldName: child
+      _node: {fileID: -572460420321250235}
+      _typeQualifiedName: Nirvana.BT.Task, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: parent
+        node: {fileID: -2917352734246373897}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: parent
+      _node: {fileID: -572460420321250235}
       _typeQualifiedName: Nirvana.BT.Task, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       connections: []
@@ -28,20 +129,8 @@ MonoBehaviour:
       _connectionType: 1
       _typeConstraint: 2
       _dynamic: 0
-    - _fieldName: child
-      _node: {fileID: -3967989416563257200}
-      _typeQualifiedName: Nirvana.BT.Task, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: parent
-        node: {fileID: 1339440199964505998}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
   parent: {fileID: 0}
-  child: {fileID: 1339440199964505998}
+  child: {fileID: -2917352734246373897}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,11 +144,11 @@ MonoBehaviour:
   m_Name: New Behavior Graph
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: 1339440199964505998}
-  - {fileID: 7964077479512997505}
-  - {fileID: -3967989416563257200}
-  - {fileID: 3191489373981177570}
---- !u!114 &1339440199964505998
+  - {fileID: -4159367350013438588}
+  - {fileID: -2917352734246373897}
+  - {fileID: 6849630331168733615}
+  - {fileID: -572460420321250235}
+--- !u!114 &6849630331168733615
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68,117 +157,39 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61f456db3f04676479bc5ada266457d4, type: 3}
-  m_Name: Log
+  m_Script: {fileID: 11500000, guid: 864481f96c9d991469015480289c3ec2, type: 3}
+  m_Name: Inverter
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 328, y: -152}
-  ports:
-    keys:
-    - parent
-    values:
-    - _fieldName: parent
-      _node: {fileID: 1339440199964505998}
-      _typeQualifiedName: Nirvana.BT.Task, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: child
-        node: {fileID: -3967989416563257200}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 1
-      _typeConstraint: 2
-      _dynamic: 0
-  parent: {fileID: -3967989416563257200}
-  info: jshdfjhdjsf
---- !u!114 &3191489373981177570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57a58f5c05fcd9346a30410d31ea5053, type: 3}
-  m_Name: Composite
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: -88, y: -184}
-  ports:
-    keys:
-    - children
-    - parent
-    - children 0
-    values:
-    - _fieldName: children
-      _node: {fileID: 3191489373981177570}
-      _typeQualifiedName: System.Collections.Generic.List`1[[Nirvana.BT.Task, Assembly-CSharp,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
-        Culture=neutral, PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: parent
-      _node: {fileID: 3191489373981177570}
-      _typeQualifiedName: Nirvana.BT.Task, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections: []
-      _direction: 0
-      _connectionType: 1
-      _typeConstraint: 2
-      _dynamic: 0
-    - _fieldName: children 0
-      _node: {fileID: 3191489373981177570}
-      _typeQualifiedName: System.Collections.Generic.List`1[[Nirvana.BT.Task, Assembly-CSharp,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
-        Culture=neutral, PublicKeyToken=b77a5c561934e089
-      connections: []
-      _direction: 1
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 1
-  parent: {fileID: 0}
-  children:
-  - {fileID: 0}
---- !u!114 &7964077479512997505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99452f027eac4a148a55a0ea5853293c, type: 3}
-  m_Name: Entry Task
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: -392, y: -184}
+  position: {x: 216, y: -168}
   ports:
     keys:
     - child
     - parent
     values:
     - _fieldName: child
-      _node: {fileID: 7964077479512997505}
+      _node: {fileID: 6849630331168733615}
       _typeQualifiedName: Nirvana.BT.Task, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: parent
+        node: {fileID: -4159367350013438588}
+        reroutePoints: []
       _direction: 1
       _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: parent
-      _node: {fileID: 7964077479512997505}
+      _node: {fileID: 6849630331168733615}
       _typeQualifiedName: Nirvana.BT.Task, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-      connections: []
+      connections:
+      - fieldName: children 0
+        node: {fileID: -2917352734246373897}
+        reroutePoints: []
       _direction: 0
       _connectionType: 1
       _typeConstraint: 2
       _dynamic: 0
-  parent: {fileID: 0}
-  child: {fileID: 0}
+  parent: {fileID: -2917352734246373897}
+  child: {fileID: -4159367350013438588}

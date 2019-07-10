@@ -7,7 +7,7 @@ namespace Nirvana.BT
     {
         [Output(connectionType = ConnectionType.Override)]
         [SerializeField]
-        protected Task child;
+        public Task child;
 
         public override object GetValue(NodePort port)
         {

@@ -3,7 +3,7 @@ using XNode;
 
 namespace Nirvana.BT
 {
-    public class Composite : Task
+    public abstract class Composite : Task
     {
         [Output(backingValue = ShowBackingValue.Never, connectionType = ConnectionType.Override, dynamicPortList = true)]
         public List<Task> children = new List<Task>();
