@@ -7,6 +7,11 @@ namespace Nirvana.BT
     [CustomNodeGraphEditor(typeof(BehaviorGraph), "BehaviorGraph.settings")]
     public class BehaviorGraphEditor : NodeGraphEditor
     {
+        public override void OnGUI()
+        {
+            NodeEditorWindow.current.Repaint();
+        }
+
         // public override string GetNodeMenuName(System.Type type)
         // {
         // }

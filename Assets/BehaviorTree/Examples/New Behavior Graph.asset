@@ -13,30 +13,35 @@ MonoBehaviour:
   m_Name: Inverter
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -40, y: -232}
+  position: {x: -344, y: 8}
   ports:
     keys:
-    - child
     - parent
+    - child
     values:
-    - _fieldName: child
-      _node: {fileID: -3967989416563257200}
-      _typeQualifiedName: Nirvana.BT.TaskConnection, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
     - _fieldName: parent
       _node: {fileID: -3967989416563257200}
-      _typeQualifiedName: Nirvana.BT.TaskConnection, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
+      _typeQualifiedName: Nirvana.BT.Task, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
       connections: []
       _direction: 0
-      _connectionType: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: child
+      _node: {fileID: -3967989416563257200}
+      _typeQualifiedName: Nirvana.BT.Task, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: parent
+        node: {fileID: 1339440199964505998}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
+  parent: {fileID: 0}
+  child: {fileID: 1339440199964505998}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,6 +58,7 @@ MonoBehaviour:
   - {fileID: 1339440199964505998}
   - {fileID: 7964077479512997505}
   - {fileID: -3967989416563257200}
+  - {fileID: 3191489373981177570}
 --- !u!114 &1339440199964505998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,24 +72,77 @@ MonoBehaviour:
   m_Name: Log
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 8, y: -104}
+  position: {x: 328, y: -152}
   ports:
     keys:
     - parent
     values:
     - _fieldName: parent
       _node: {fileID: 1339440199964505998}
-      _typeQualifiedName: Nirvana.BT.TaskConnection, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
+      _typeQualifiedName: Nirvana.BT.Task, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
       connections:
       - fieldName: child
-        node: {fileID: 7964077479512997505}
+        node: {fileID: -3967989416563257200}
         reroutePoints: []
       _direction: 0
-      _connectionType: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+  parent: {fileID: -3967989416563257200}
+  info: jshdfjhdjsf
+--- !u!114 &3191489373981177570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57a58f5c05fcd9346a30410d31ea5053, type: 3}
+  m_Name: Composite
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -88, y: -184}
+  ports:
+    keys:
+    - children
+    - parent
+    - children 0
+    values:
+    - _fieldName: children
+      _node: {fileID: 3191489373981177570}
+      _typeQualifiedName: System.Collections.Generic.List`1[[Nirvana.BT.Task, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
-  info: jshdfjhdjsf
+    - _fieldName: parent
+      _node: {fileID: 3191489373981177570}
+      _typeQualifiedName: Nirvana.BT.Task, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 2
+      _dynamic: 0
+    - _fieldName: children 0
+      _node: {fileID: 3191489373981177570}
+      _typeQualifiedName: System.Collections.Generic.List`1[[Nirvana.BT.Task, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0,
+        Culture=neutral, PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 1
+  parent: {fileID: 0}
+  children:
+  - {fileID: 0}
 --- !u!114 &7964077479512997505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,22 +156,29 @@ MonoBehaviour:
   m_Name: Entry Task
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -392, y: -136}
+  position: {x: -392, y: -184}
   ports:
     keys:
     - child
+    - parent
     values:
     - _fieldName: child
       _node: {fileID: 7964077479512997505}
-      _typeQualifiedName: Nirvana.BT.TaskConnection, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: parent
-        node: {fileID: 1339440199964505998}
-        reroutePoints:
-        - {x: -135.5, y: -118}
-        - {x: -95.5, y: -38}
+      _typeQualifiedName: Nirvana.BT.Task, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
       _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: parent
+      _node: {fileID: 7964077479512997505}
+      _typeQualifiedName: Nirvana.BT.Task, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
       _connectionType: 1
       _typeConstraint: 2
       _dynamic: 0
+  parent: {fileID: 0}
+  child: {fileID: 0}
