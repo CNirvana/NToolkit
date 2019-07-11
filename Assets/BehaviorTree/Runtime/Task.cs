@@ -8,7 +8,8 @@ namespace Nirvana.BT
         [Input(connectionType = ConnectionType.Override, typeConstraint = TypeConstraint.Strict)]
         public Task parent;
 
-        public virtual TaskStatue Tick(float deltaTime) { return TaskStatue.Success; }
+        public virtual void Reset() { }
+        public virtual TaskStatus Tick(float deltaTime) { return TaskStatus.Success; }
 
         [ContextMenu("Print Name")]
         public void PrintName()

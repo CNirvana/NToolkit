@@ -4,8 +4,8 @@ using UnityEditorInternal;
 
 namespace Nirvana.BT
 {
-    [CustomNodeEditor(typeof(Composite))]
-    public class CompositeEditor : TaskEditor
+    [CustomNodeEditor(typeof(Branch))]
+    public class BranchEditor : TaskEditor
     {
         public override void OnBodyGUI()
         {
@@ -14,17 +14,17 @@ namespace Nirvana.BT
 
             NodeEditorGUILayout.DynamicPortList("children", typeof(Task), this.serializedObject, NodePort.IO.Output, Node.ConnectionType.Override, Node.TypeConstraint.Strict, OnCreateReorderableList);
 
-            var composite = this.target as Composite;
+            var branch = this.target as Branch;
             int index = 0;
             foreach (var nodePort in this.target.DynamicOutputs)
             {
                 if(nodePort.Connection == null)
                 {
-                    composite.children[index] = null;
+                    branch.children[index] = null;
                 }
                 else
                 {
-                    composite.children[index] = nodePort.Connection.node as Task;
+                    branch.children[index] = nodePort.Connection.node as Task;
                 }
 
                 index++;

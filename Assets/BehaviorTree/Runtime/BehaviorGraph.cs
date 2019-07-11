@@ -6,10 +6,30 @@ namespace Nirvana.BT
     [CreateAssetMenu(fileName = "New Behavior Graph", menuName = "Nirvana/BT/Behavior Graph")]
     public class BehaviorGraph : NodeGraph
     {
-        [ContextMenu("Debug Info")]
-        public void DebugInfo()
+        public void Initialize()
         {
-            Debug.Log("Graph");
+            foreach(var node in this.nodes)
+            {
+                var task = node as Task;
+                if(task != null)
+                {
+                    task.Reset();
+                }
+            }
+        }
+
+        public EntryTask GetEntryTask()
+        {
+            foreach(var node in this.nodes)
+            {
+                var entry = node as EntryTask;
+                if(entry != null)
+                {
+                    return entry;
+                }
+            }
+
+            return null;
         }
     }
 }

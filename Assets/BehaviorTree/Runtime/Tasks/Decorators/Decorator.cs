@@ -1,4 +1,3 @@
-using UnityEngine;
 using XNode;
 
 namespace Nirvana.BT
@@ -11,19 +10,6 @@ namespace Nirvana.BT
         public override object GetValue(NodePort port)
         {
             return null;
-        }
-
-        [ContextMenu("Execute child action")]
-        public void ExecuteChildAction()
-        {
-            if(this.child != null)
-            {
-                var action = this.child as Action;
-                if(action != null)
-                {
-                    action.Tick(0);
-                }
-            }
         }
     }
 }

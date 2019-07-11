@@ -1,6 +1,6 @@
 namespace Nirvana.BT
 {
-    public class Sequence : Composite
+    public class Selector : Composite
     {
         public override TaskStatus Tick(float deltaTime)
         {
@@ -9,16 +9,8 @@ namespace Nirvana.BT
             {
                 case TaskStatus.Success:
                     {
-                        this.ActiveChild++;
-                        if(this.ActiveChild >= this.ChildCount)
-                        {
-                            this.ActiveChild = 0;
-                            return TaskStatus.Success;
-                        }
-                        else
-                        {
-                            return TaskStatus.Running;
-                        }
+                        this.ActiveChild = 0;
+                        return TaskStatus.Success;
                     }
                 case TaskStatus.Running:
                     {
@@ -26,8 +18,16 @@ namespace Nirvana.BT
                     }
                 case TaskStatus.Failure:
                     {
-                        this.ActiveChild = 0;
-                        return TaskStatus.Failure;
+                        this.ActiveChild++;
+                        if(this.ActiveChild >= this.ChildCount)
+                        {
+                            this.ActiveChild = 0;
+                            return TaskStatus.Failure;
+                        }
+                        else
+                        {
+                            return TaskStatus.Running;
+                        }
                     }
                 default:
                     return TaskStatus.Success;

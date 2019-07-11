@@ -6,10 +6,10 @@ namespace Nirvana.BT
     {
         public string info;
 
-        public override TaskStatue Tick(float deltaTime)
+        public override TaskStatus Tick(float deltaTime)
         {
             Debug.Log(this.info);
-            return TaskStatue.Success;
+            return TaskStatus.Success;
         }
     }
 }

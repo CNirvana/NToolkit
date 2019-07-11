@@ -9,14 +9,14 @@ namespace Nirvana.BT
         [SerializeField]
         public Task child;
 
+        public override TaskStatus Tick(float deltaTime)
+        {
+            return this.child.Tick(deltaTime);
+        }
+
         public override object GetValue(NodePort port)
         {
             return null;
-        }
-
-        [ContextMenu("Print Child")]
-        public void PrintChild()
-        {
         }
     }
 }
