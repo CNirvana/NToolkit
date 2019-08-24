@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: b7d8c1317466e436e8ca0a335c5ab485
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _lightSet: {fileID: 11400000, guid: 35e25747341784c158d1d8b0d245aa25, type: 2}
+  - _lightingShader: {fileID: 4800000, guid: 01a87f2753324481c9523528d612f7c1, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
